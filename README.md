@@ -1,6 +1,6 @@
 ## Laravel 8 Perpustakaan
 
-Aplikasi perpustakaan sederhana dibuat dengan Laravel 8, Bootstrap, dan SB Admin 2.
+Aplikasi Simlabdkv sederhana dibuat dengan Laravel 8, Bootstrap, dan SB Admin 2.
 
 ### Instalasi
 
