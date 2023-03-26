@@ -59,7 +59,6 @@ class LoanController extends Controller
             $qty = $qty->map(function ($item) {
                 return ['qty' => $item];
             });
-            dd($request->book_id);
             $barangs = $barangs->merge($qty);
             $barangs->each(function ($item, $key) {
                 $barang = Barang::findOrFail($key);
