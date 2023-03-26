@@ -1,7 +1,6 @@
 $(function () {
 
 	bsCustomFileInput.init()
-
 	const table = $('table').DataTable({
 		serverSide: true,
 		ajax: {
@@ -9,16 +8,18 @@ $(function () {
 			dataType: 'json'
 		},
 		columns: [
-			{ data: 'DT_RowIndex' },
+			{   data: 'DT_RowIndex' ,
+                orderable: false,
+				searchable: false},
 			{ data: 'name' },
-			{ data: 'email' },
 			{ data: 'email' },
 			{
 				data: 'action',
 				orderable: false,
 				searchable: false
 			}
-		]
+		],
+
 	})
 
 	const reload = () => table.ajax.reload()

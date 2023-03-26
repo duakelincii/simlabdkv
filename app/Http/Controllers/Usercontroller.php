@@ -12,19 +12,17 @@ class Usercontroller extends Controller
     public function index(Request $request)
     {
         if ($request->ajax()) {
-            $users = User::all();
-            dd($users);
-            return DataTables::of($users)
+            $users = User::query();
+            return DataTables::eloquent($users)
                 ->addIndexColumn()
-                ->addColumn('action', function ($user)
-                {
+                ->addColumn('action', function ($user) {
                     $btn = "
                         <button class='btn btn-success btn-sm edit'>Edit</button>
                         <button class='btn btn-danger btn-sm delete'>Delete</button>
                     ";
                     return $btn;
                 })
-                ->make(true);
+                ->toJson();
         }
         return view('user.index');
     }
@@ -32,7 +30,7 @@ class Usercontroller extends Controller
     public function update(Request $request, User $user)
     {
         $request->validate([
-            'email' => 'required|string|max:255|unique:user,email,'.$user->id,
+            'email' => 'required|string|max:255|unique:user,email,' . $user->id,
             'password' => 'required|string',
         ]);
 
@@ -60,7 +58,7 @@ class Usercontroller extends Controller
     public function get(Request $request)
     {
         $name = $request->name;
-        $member = User::where('name', 'like', '%'.$name.'%')->latest()->get(['id', 'name as text']);
+        $member = User::where('name', 'like', '%' . $name . '%')->latest()->get(['id', 'name as text']);
         return $member;
     }
 }

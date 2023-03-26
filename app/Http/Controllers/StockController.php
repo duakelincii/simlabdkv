@@ -74,16 +74,14 @@ class StockController extends Controller
     // Get Datatable
     public function datatable($type)
     {
-        $stocks = Stock::whereType($type)->get(['id','from','keterangan' ,'total', 'created_at as date', 'barang_id']);
+        $stocks = Stock::whereType($type)->get(['id', 'from', 'keterangan', 'total', 'created_at as date', 'barang_id']);
         return Datatables::of($stocks)
             ->addIndexColumn()
             ->editColumn('date', '{{ localDate($date) }}')
-            ->addColumn('code', function ($stock)
-            {
+            ->addColumn('code', function ($stock) {
                 return $stock->barang->code;
             })
             ->addColumn('action', '<button class="btn btn-sm btn-danger delete">Delete</button>')
             ->make(true);
     }
-
 }
