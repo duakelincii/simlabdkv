@@ -56,14 +56,12 @@ class LoanController extends Controller
 
             $qty = collect($request->total_id);
             $barangs = collect($request->book_id);
-            $qty = $qty->map(function ($item)
-            {
+            $qty = $qty->map(function ($item) {
                 return ['qty' => $item];
             });
-
-            $barangs = $barangs->combine($qty);
-            $barangs->each(function ($item, $key)
-            {
+            dd($request->book_id);
+            $barangs = $barangs->merge($qty);
+            $barangs->each(function ($item, $key) {
                 $barang = Barang::findOrFail($key);
                 $barang->decrement('stock', $item['qty']);
             });
@@ -71,9 +69,9 @@ class LoanController extends Controller
             $loan = Loan::create($request->only('member_id', 'return'));
             $loan->barangs()->attach($barangs->all());
 
-            return redirect('loan')->with('success', 'Success Make Loan');
+            return redirect(route('loan.index'))->with('success', 'Success Make Loan');
         } catch (\Throwable $th) {
-            throw $th;
+            return back();
         }
     }
 
@@ -95,8 +93,7 @@ class LoanController extends Controller
     {
         $barangs = $loan->barangs;
 
-        $barangs->each(function ($barang)
-        {
+        $barangs->each(function ($barang) {
             $barang->increment('stock', $barang->pivot->qty);
         });
 
@@ -124,30 +121,24 @@ class LoanController extends Controller
     // Get Datatatble
     public function datatable()
     {
-        if(Auth::user()->is_admin == 1)
-        {
-            $loans = Loan::with(['barangs' => function ($barang)
-            {
+        if (Auth::user()->is_admin == 1) {
+            $loans = Loan::with(['barangs' => function ($barang) {
                 $barang->select('name');
-            }, 'member' => function ($member)
-            {
-                $member->select('id','name');
+            }, 'member' => function ($member) {
+                $member->select('id', 'name');
             }])->latest()->get();
-        }else{
-            $loans = Loan::with(['barangs' => function ($barang)
-            {
+        } else {
+            $loans = Loan::with(['barangs' => function ($barang) {
                 $barang->select('name');
-            }, 'member' => function ($member)
-            {
-                $member->select('id','name','user_id');
-            }])->join('members','members.id','=','loans.id')
-            ->where('members.user_id',Auth::user()->id)
-            ->orderby('loans.created_at','desc')->get();
+            }, 'member' => function ($member) {
+                $member->select('id', 'name', 'user_id');
+            }])->join('members', 'members.id', '=', 'loans.id')
+                ->where('members.user_id', Auth::user()->id)
+                ->orderby('loans.created_at', 'desc')->get();
         }
         return Datatables::of($loans)
             ->addIndexColumn()
-            ->addColumn('late', function ($loan)
-            {
+            ->addColumn('late', function ($loan) {
                 if ($loan->status) {
                     $today = Carbon::today();
                     $return = Carbon::parse($loan->return);
@@ -157,8 +148,7 @@ class LoanController extends Controller
                     return 0;
                 }
             })
-            ->addColumn('return_date', function ($loan)
-            {
+            ->addColumn('return_date', function ($loan) {
                 return $loan->return;
             })
             ->editColumn('return', '{{ localDate($return) }}')
