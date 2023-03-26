@@ -1,15 +1,15 @@
 @extends('__layouts.app')
 
-@section('title', 'Loan')
+@section('title', 'Peminjaman')
 
 @section('content')
 
     <div class="card shadow mb-4">
         <div class="card-header d-flex align-items-center justify-content-between">
-            <h6 class="font-weight-bold text-primary m-0">Data Loan</h6>
+            <h6 class="font-weight-bold text-primary m-0">Data Peminjaman</h6>
             <div>
                 <button class="btn btn-sm btn-success" data-toggle="collapse" data-target="#filter">Filter</button>
-                <a href="{{ route('loan.create') }}" class="btn btn-primary btn-sm">Make Loan</a>
+                <a href="{{ route('loan.create') }}" class="btn btn-primary btn-sm">Make Peminjaman</a>
             </div>
         </div>
         <div class="card-body border-bottom collapse" id="filter">
@@ -22,7 +22,7 @@
                 </div>
                 <div class="col-sm-4">
                     <div class="form-group">
-                        <label>Return</label>
+                        <label>Pengembalian Tanggal</label>
                         <input type="date" class="form-control" data-filter="return" placeholder="Return">
                     </div>
                 </div>
@@ -51,10 +51,10 @@
                     <thead>
                         <tr>
                             <th>No</th>
-                            <th>Book</th>
+                            <th>Barang</th>
                             <th>Member</th>
-                            <th>Return</th>
-                            <th>Late</th>
+                            <th>Pengembalian</th>
+                            <th>Telat</th>
                             <th>Status</th>
                             <th>Action</th>
                         </tr>

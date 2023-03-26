@@ -26,7 +26,7 @@
 						</div>
 						<div class="col-sm-6">
 							<div class="form-group">
-								<label>Phone</label>
+								<label>No Telpon</label>
 								<input type="number" class="form-control @error('phone') is-invalid @enderror" name="phone" placeholder="Phone" value="{{ old('phone') }}" required>
 
 								@error('phone')
@@ -36,7 +36,7 @@
 						</div>
 						<div class="col-sm-6">
 							<div class="form-group">
-								<label>Gender</label>
+								<label>Jenis Kelamin</label>
 								<select name="gender" class="form-control custom-select @error('gender') is-invalid @enderror" required>
 									<option value="male">Male</option>
 									<option value="female">Female</option>
@@ -49,7 +49,7 @@
 						</div>
 						<div class="col-sm-6">
 							<div class="form-group">
-								<label>Birthday</label>
+								<label>Tanggal Lahir</label>
 								<input type="date" class="form-control @error('birthday') is-invalid @enderror" name="birthday" placeholder="birthday" value="{{ old('birthday') }}" required>
 
 								@error('birthday')
@@ -59,7 +59,7 @@
 						</div>
 					</div>
 					<div class="form-group">
-						<label>Address</label>
+						<label>Alamat</label>
 						<textarea class="form-control @error('address') is-invalid @enderror" name="address" placeholder="Address" required>{{ old('address') }}</textarea>
 
 						@error('address')

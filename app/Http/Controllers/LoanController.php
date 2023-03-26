@@ -44,7 +44,6 @@ class LoanController extends Controller
      */
     public function store(Request $request)
     {
-        // dd($request->all());
         DB::beginTransaction();
         try {
             // $request->validate([
@@ -55,11 +54,11 @@ class LoanController extends Controller
             // ]);
 
             $qty = collect($request->total_id);
-            $barangs = collect($request->book_id);
+            $barangs = collect($request->barang_id);
             $qty = $qty->map(function ($item) {
                 return ['qty' => $item];
             });
-            $barangs = $barangs->merge($qty);
+            $barangs = $barangs->combine($qty);
             $barangs->each(function ($item, $key) {
                 $barang = Barang::findOrFail($key);
                 $barang->decrement('stock', $item['qty']);
@@ -70,7 +69,8 @@ class LoanController extends Controller
 
             return redirect(route('loan.index'))->with('success', 'Success Make Loan');
         } catch (\Throwable $th) {
-            return back();
+            DB::rollBack();
+            return $th;
         }
     }
 

@@ -28,19 +28,19 @@
 									<td>{{ $member->name }}</td>
 								</tr>
 								<tr>
-									<th>Gender</th>
+									<th>Jenis Kelamin</th>
 									<td>{{ $member->gender }}</td>
 								</tr>
 								<tr>
-									<th>Birthday</th>
+									<th>Tanggal Lahir</th>
 									<td>{{ localDate($member->birthday) }}</td>
 								</tr>
 								<tr>
-									<th>Phone</th>
+									<th>No Telpon</th>
 									<td>{{ $member->phone }}</td>
 								</tr>
 								<tr>
-									<th>Address</th>
+									<th>Alamat</th>
 									<td>{{ $member->address }}</td>
 								</tr>
 							</tbody>
@@ -52,7 +52,7 @@
 				</div>
 			</div>
 		</div>
-	
+
 	</div>
 
 

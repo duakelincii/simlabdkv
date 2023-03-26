@@ -10,7 +10,7 @@
 			<div class="card shadow mb-4">
 			<form id="make">
 				<div class="card-header">
-					<h6 class="font-weight-bold text-primary m-0">Make Loan</h6>
+					<h6 class="font-weight-bold text-primary m-0">Buat Pinjaman</h6>
 				</div>
 				<div class="card-body">
 					<div class="form-group">
@@ -29,7 +29,7 @@
 					</div>
 				</div>
 				<div class="card-footer">
-					<button class="btn btn-primary" type="submit">Add</button>
+					<button class="btn btn-primary" type="submit">Tambah</button>
 				</div>
 			</form>
 			</div>
@@ -38,21 +38,21 @@
 		<div class="col-md-8">
 			<div class="card shadow mb-4">
 				<div class="card-header">
-					<h6 class="font-weight-bold text-primary m-0">Data Loan</h6>
+					<h6 class="font-weight-bold text-primary m-0">Data Pinjaman</h6>
 				</div>
 				<div class="card-body">
 					<div class="table-responsive">
 						<table class="table table-bordered table-striped" width="100%">
 							<thead>
 								<tr>
-									<th>Name</th>
+									<th>Nama</th>
 									<th>Total</th>
 									<th>Action</th>
 								</tr>
 							</thead>
 							<tbody>
 								<tr id="empty">
-									<td colspan="3" align="center">Empty</td>
+									<td colspan="3" align="center">Kosong</td>
 								</tr>
 							</tbody>
 						</table>
@@ -72,7 +72,7 @@
 	<div class="modal-content">
 	<form action="{{ route('loan.store') }}" method="post">
 		<div class="modal-header">
-			<h5 class="modal-title">Make Loan</h5>
+			<h5 class="modal-title">Buat Pinjaman</h5>
 			<button class="close" data-dismiss="modal">&times;</button>
 		</div>
 		<div class="modal-body">
@@ -82,7 +82,7 @@
 				<select name="member_id" class="form-control custom-select" required></select>
 			</div>
 			<div class="form-group">
-				<label>Return Date</label>
+				<label>Tanggal Pengembalian</label>
 				<input type="date" class="form-control" name="return" placeholder="Return Date" min="{{ date('Y-m-d') }}">
 			</div>
 		</div>

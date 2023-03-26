@@ -97,7 +97,7 @@
                     <a class="collapse-item {{ active('member', 'active') }}" href="{{ route('member.index') }}">Data
                         Member</a>
                     <a class="collapse-item {{ active('member/create', 'active') }}"
-                        href="{{ route('member.create') }}">Add Member</a>
+                        href="{{ route('member.create') }}">Tambah Member</a>
                 </div>
             </div>
         </li>
@@ -122,15 +122,15 @@
             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#loan" aria-expanded="true"
                 aria-controls="loan">
                 <i class="fas fa-fw fa-clipboard-list"></i>
-                <span>Loan</span>
+                <span>Pinjaman</span>
             </a>
             <div id="loan" class="collapse {{ active('loan', 'show', 'group') }}">
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">Loan</h6>
                     <a class="collapse-item {{ active('loan', 'active') }}" href="{{ route('loan.index') }}">Data
-                        Loan</a>
+                        Pinjaman</a>
                     <a class="collapse-item {{ active('loan/create', 'active') }}"
-                        href="{{ route('loan.create') }}">Make Loan</a>
+                        href="{{ route('loan.create') }}">Buat Pinjaman</a>
                 </div>
             </div>
         </li>
@@ -199,8 +199,6 @@
                     <h6 class="collapse-header">Loan</h6>
                     <a class="collapse-item {{ active('loan', 'active') }}" href="{{ route('loan.index') }}">Data
                         Loan</a>
-                    <a class="collapse-item {{ active('loan/create', 'active') }}"
-                        href="{{ route('loan.create') }}">Make Loan</a>
                 </div>
             </div>
         </li>

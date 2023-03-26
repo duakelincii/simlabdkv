@@ -26,7 +26,7 @@ $(function () {
 			},
 			{
 				render: (data, type, row) => {
-					const btn = `
+                        const btn = `
 						<button class="btn btn-warning btn-sm" data-click="return" title="Return" ${row.status ? '' : 'disabled'}><i class="fa fa-undo"></i></button>
 						<button class="btn btn-info btn-sm" data-click="extend" title="Extend" ${row.status ? '' : 'disabled'}><i class="fa fa-calendar"></i></button>
 						<button class="btn btn-danger btn-sm" data-click="delete" title="Delete"><i class="fa fa-trash"></i></button>

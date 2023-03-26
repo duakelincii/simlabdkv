@@ -26,7 +26,7 @@
 						<tr>
 							<th>No</th>
 							<th>Name</th>
-							<th>Gender</th>
+							<th>Jenis Kelamin</th>
 							<th>Action</th>
 						</tr>
 					</thead>
@@ -57,7 +57,7 @@
 				</div>
 				<div class="col-sm-6">
 					<div class="form-group">
-						<label>Phone</label>
+						<label>No Telpon</label>
 						<input type="number" class="form-control" name="phone" placeholder="Phone" required>
 
 						<span class="invalid-feedback"></span>
@@ -65,7 +65,7 @@
 				</div>
 				<div class="col-sm-6">
 					<div class="form-group">
-						<label>Gender</label>
+						<label>Jenis Kelamin</label>
 						<select name="gender" class="form-control custom-select" required>
 							<option value="male">Male</option>
 							<option value="female">Female</option>
@@ -76,7 +76,7 @@
 				</div>
 				<div class="col-sm-6">
 					<div class="form-group">
-						<label>Birthday</label>
+						<label>Tanggal Lahir</label>
 						<input type="date" class="form-control" name="birthday" placeholder="birthday" required>
 
 						<span class="invalid-feedback"></span>
@@ -84,7 +84,7 @@
 				</div>
 			</div>
 			<div class="form-group">
-				<label>Address</label>
+				<label>Alamat</label>
 				<textarea class="form-control" name="address" placeholder="Address" required></textarea>
 
 				<span class="invalid-feedback"></span>
@@ -94,7 +94,7 @@
 				<div class="custom-file">
 					<label class="custom-file-label" id="photo">Upload</label>
 					<input type="file" class="custom-file-input" name="file" placeholder="Photo">
-					
+
 					<span class="invalid-feedback"></span>
 				</div>
 

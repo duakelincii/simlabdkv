@@ -9,7 +9,7 @@
 			<div class="card shadow mb-4">
 			<form action="" id="create">
 				<div class="card-header">
-					<h6 class="card-title my-0 font-weight-bold text-primary">Add Merk</h6>
+					<h6 class="card-title my-0 font-weight-bold text-primary">Tambah Merk</h6>
 				</div>
 				<div class="card-body">
 					@csrf
@@ -21,7 +21,7 @@
 					</div>
 				</div>
 				<div class="card-footer">
-					<button class="btn btn-primary" type="primary">Add</button>
+					<button class="btn btn-primary" type="primary">Tambah</button>
 				</div>
 			</div>
 			</form>

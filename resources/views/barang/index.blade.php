@@ -8,7 +8,7 @@
 		<div class="card-header d-flex align-items-center justify-content-between">
 			<h6 class="font-weight-bold text-primary m-0">Data Barang</h6>
 			<div>
-				<a href="{{ route('barang.create') }}" class="btn btn-primary btn-sm">New Barang</a>
+				<a href="{{ route('barang.create') }}" class="btn btn-primary btn-sm">Tambah Barang</a>
 			</div>
 		</div>
 		<div class="card-body">
@@ -28,7 +28,7 @@
 							<th>Code</th>
 							<th>Name</th>
 							<th>Satuan</th>
-							<th>Year</th>
+							<th>Tahun Pembuatan</th>
 							<th>Stock</th>
 							<th>Action</th>
 						</tr>
@@ -62,7 +62,7 @@
 				<span class="invalid-feedback"></span>
 			</div>
 			<div class="form-group">
-				<label>Category</label>
+				<label>Merk</label>
 				<select name="category_id" class="form-control custom-select" required></select>
 
 				@error('category_id')
@@ -76,7 +76,7 @@
 				<span class="invalid-feedback"></span>
 			</div>
 			<div class="form-group">
-				<label>Year</label>
+				<label>Tahun Pembuatan</label>
 				<input type="number" maxlength="4" class="form-control" name="year" placeholder="Year" required>
 
 				<span class="invalid-feedback"></span>

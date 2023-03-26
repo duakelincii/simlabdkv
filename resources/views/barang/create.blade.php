@@ -8,7 +8,7 @@
 	<div class="col-md-6 mx-auto">
 		<div class="card shadow mb-4">
 			<div class="card-header">
-				<h6 class="font-weight-bold text-primary m-0">Add Barang</h6>
+				<h6 class="font-weight-bold text-primary m-0">Tambah Barang</h6>
 			</div>
 			<div class="card-body">
 				<form action="{{ route('barang.store') }}" method="post">
@@ -39,7 +39,7 @@
 						@enderror
 					</div>
 					<div class="form-group">
-						<label>Category</label>
+						<label>Merk</label>
 						<select name="category_id" class="form-control custom-select" required></select>
 
 						@error('category_id')
@@ -47,7 +47,7 @@
 						@enderror
 					</div>
 					<div class="form-group">
-						<label>Year</label>
+						<label>Tahun Pembuatan</label>
 						<input type="number" maxlength="4" class="form-control @error('year') is-invalid @enderror" name="year" placeholder="Year" value="{{ old('year') }}" required>
 
 						@error('year')
@@ -55,8 +55,8 @@
 						@enderror
 					</div>
 					<div class="form-group">
-						<button class="btn btn-primary" type="submit">Add</button>
-						<a href="{{ url()->previous() }}" class="btn btn-danger">Cancel</a>
+						<button class="btn btn-primary" type="submit">Simpan</button>
+						<a href="{{ url()->previous() }}" class="btn btn-danger">Batal</a>
 					</div>
 				</form>
 			</div>

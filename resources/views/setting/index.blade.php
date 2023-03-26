@@ -21,7 +21,7 @@
 					@csrf
 					@method('put')
 					<div class="form-group">
-						<label>Name</label>
+						<label>Nama Website</label>
 						<input type="text" class="form-control @error('name') is-invalid @enderror" name="name" placeholder="Name" value="{{ site('name') }}" required>
 
 						@error('name')
@@ -29,7 +29,7 @@
 						@enderror
 					</div>
 					<div class="form-group">
-						<label>Address</label>
+						<label>Alamat</label>
 						<input type="text" class="form-control @error('address') is-invalid @enderror" name="address" placeholder="Address" value="{{ site('address') }}" required>
 
 						@error('address')
