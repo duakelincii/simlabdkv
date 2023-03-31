@@ -131,9 +131,12 @@ class LoanController extends Controller
                 $barang->select('name');
             }, 'member' => function ($member) {
                 $member->select('id', 'name', 'user_id');
-            }])->join('members', 'members.id', '=', 'loans.id')
-                ->where('members.user_id', Auth::user()->id)
+            }])->whereHas('member', function ($q) {
+                $q->where('id', Auth::user()->member->id);
+            })
                 ->orderby('loans.created_at', 'desc')->get();
+
+            // dd(Auth::user()->member->id);
         }
         return Datatables::of($loans)
             ->addIndexColumn()
