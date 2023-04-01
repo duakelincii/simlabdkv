@@ -187,18 +187,33 @@
             Menu
         </div>
 
+         <!-- Nav Item - Books -->
+         <li class="nav-item {{ active('barang', 'active', 'group') }}">
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#barang"
+                aria-expanded="true" aria-controls="barang">
+                <i class="fas fa-fw fa-book"></i>
+                <span>Barang</span>
+            </a>
+            <div id="barang" class="collapse {{ active('barang', 'show', 'group') }}">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <h6 class="collapse-header">Barang</h6>
+                    <a class="collapse-item {{ active('barang', 'active') }}" href="{{ route('barang.index') }}">Data
+                        Barang</a>
+                </div>
+            </div>
+        </li>
+
         <!-- Nav Item - Loan -->
         <li class="nav-item {{ active('loan', 'active', 'group') }}">
             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#loan"
                 aria-expanded="true" aria-controls="loan">
                 <i class="fas fa-fw fa-clipboard-list"></i>
-                <span>Loan</span>
+                <span>Peminjaman</span>
             </a>
             <div id="loan" class="collapse {{ active('loan', 'show', 'group') }}">
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">Loan</h6>
-                    <a class="collapse-item {{ active('loan', 'active') }}" href="{{ route('loan.index') }}">Data
-                        Loan</a>
+                    <a class="collapse-item {{ active('loan', 'active') }}" href="{{ route('loan.index') }}">Data Peminjaman</a>
                 </div>
             </div>
         </li>

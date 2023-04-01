@@ -14,6 +14,7 @@ $(function () {
 			{ data: 'year' },
 			{ data: 'stock' },
 			{
+                visible: admin === '1' ? true : false,
 				data: 'action',
 				orderable: false,
 				searchable: false

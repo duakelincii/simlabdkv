@@ -133,10 +133,7 @@ class LoanController extends Controller
                 $member->select('id', 'name', 'user_id');
             }])->whereHas('member', function ($q) {
                 $q->where('id', Auth::user()->member->id);
-            })
-                ->orderby('loans.created_at', 'desc')->get();
-
-            // dd(Auth::user()->member->id);
+            })->orderby('loans.created_at', 'desc')->get();
         }
         return Datatables::of($loans)
             ->addIndexColumn()
@@ -144,8 +141,8 @@ class LoanController extends Controller
                 if ($loan->status) {
                     $today = Carbon::today();
                     $return = Carbon::parse($loan->return);
-
-                    return min($today->diffInDays($return, false), 0);
+                    // dd($today->diffInDays($return, true), 0);
+                    return $today->diffInDays($return, true);
                 } else {
                     return 0;
                 }

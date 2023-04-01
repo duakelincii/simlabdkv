@@ -8,7 +8,9 @@
 		<div class="card-header d-flex align-items-center justify-content-between">
 			<h6 class="font-weight-bold text-primary m-0">Data Barang</h6>
 			<div>
+                @if (Auth::user()->is_admin == 1)
 				<a href="{{ route('barang.create') }}" class="btn btn-primary btn-sm">Tambah Barang</a>
+                @endif
 			</div>
 		</div>
 		<div class="card-body">
@@ -108,6 +110,7 @@
 		let updateUrl = "{{ route('barang.update', ':id') }}"
 		let deleteUrl = "{{ route('barang.destroy', ':id') }}"
 		let getCategoryUrl = "{{ route('category.get') }}"
+        let admin = "{{Auth::user()->is_admin}}"
 		let csrf = "{{ csrf_token() }}"
 	</script>
 

@@ -9,7 +9,9 @@
             <h6 class="font-weight-bold text-primary m-0">Data Peminjaman</h6>
             <div>
                 <button class="btn btn-sm btn-success" data-toggle="collapse" data-target="#filter">Filter</button>
-                <a href="{{ route('loan.create') }}" class="btn btn-primary btn-sm">Make Peminjaman</a>
+                @if(Auth::user()->is_admin == 1)
+                <a href="{{ route('loan.create') }}" class="btn btn-primary btn-sm">Buat Peminjaman</a>
+                @endif
             </div>
         </div>
         <div class="card-body border-bottom collapse" id="filter">
@@ -79,6 +81,7 @@
         let returnUrl = "{{ route('loan.return', ':id') }}";
         let extendUrl = "{{ route('loan.extend', ':id') }}";
         let deleteUrl = "{{ route('loan.destroy', ':id') }}"
+        let admin = "{{Auth::user()->is_admin}}"
         let csrf = "{{ csrf_token() }}"
     </script>
 

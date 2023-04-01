@@ -42,13 +42,20 @@ class HomeController extends Controller
             $total = [
                 'book' => Barang::count(),
                 'category' => \App\Models\Category::count(),
-                'loan' => DB::table('loans')
-                            ->join('members','members.id','=','loans.id')
-                            ->where('members.user_id',Auth::user()->id)->count(),
-                'activeLoan' => DB::table('loans')
-                                ->join('members','members.id','=','loans.id')
-                                ->where('members.user_id',Auth::user()->id)
-                                ->whereStatus(true)->count()
+                'loan' => Loan::with(['barangs' => function ($barang) {
+                            $barang->select('name');
+                        }, 'member' => function ($member) {
+                            $member->select('id', 'name', 'user_id');
+                        }])->whereHas('member', function ($q) {
+                            $q->where('id', Auth::user()->member->id);
+                        })->count(),
+                'activeLoan' => Loan::with(['barangs' => function ($barang) {
+                        $barang->select('name');
+                    }, 'member' => function ($member) {
+                        $member->select('id', 'name', 'user_id');
+                    }])->whereHas('member', function ($q) {
+                        $q->where('id', Auth::user()->member->id);
+                    })->whereStatus(true)->count()
             ];
         }
 

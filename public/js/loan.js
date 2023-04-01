@@ -1,5 +1,4 @@
 $(function () {
-
 	const table = $('table').DataTable({
 		serverSide: true,
 		ajax: ajaxUrl,
@@ -19,20 +18,23 @@ $(function () {
 			},
 			{ data: 'member.name' },
 			{ data: 'return' },
-			{ data: 'late' },
+			{ data: 'late' ,
+                render: late => `<span class="badge badge-info">${late} Hari</span>`
+            },
 			{
 				data: 'status',
-				render: status =>  `<span class="badge badge-${status ? 'primary' : 'success'}">${status ? 'Active' : 'Returned'}</span>`
+				render: status =>`<span class="badge badge-${status ? 'primary' : 'success'}">${status ? 'Active' : 'Dikembalikan'}</span>`
 			},
 			{
-				render: (data, type, row) => {
-                        const btn = `
-						<button class="btn btn-warning btn-sm" data-click="return" title="Return" ${row.status ? '' : 'disabled'}><i class="fa fa-undo"></i></button>
-						<button class="btn btn-info btn-sm" data-click="extend" title="Extend" ${row.status ? '' : 'disabled'}><i class="fa fa-calendar"></i></button>
-						<button class="btn btn-danger btn-sm" data-click="delete" title="Delete"><i class="fa fa-trash"></i></button>
-					`
+                visible: admin === '1' ? true : false,
+                render: (data, type, row) => {
+                            const btn = `
+                            <button class="btn btn-warning btn-sm" data-click="return" title="Return" ${row.status ? '' : 'disabled'}><i class="fa fa-undo"></i></button>
+                            <button class="btn btn-info btn-sm" data-click="extend" title="Extend" ${row.status ? '' : 'disabled'}><i class="fa fa-calendar"></i></button>
+                            <button class="btn btn-danger btn-sm" data-click="delete" title="Delete"><i class="fa fa-trash"></i></button>
+                        `
+                            return btn
 
-					return btn
 				},
 				orderable: false,
 				searchable: false,

@@ -63,12 +63,12 @@ Route::middleware(['auth'])->group(function () {
         /**
          * resource
          */
-        Route::resource('/barang', 'BarangController')->except(['show', 'edit']);
         Route::resource('/category', 'CategoryController')->except(['show', 'edit', 'create']);
         Route::resource('/member', 'MemberController')->except(['edit']);
         Route::resource('/user', 'Usercontroller')->except(['edit']);
     });
 
+    Route::resource('/barang', 'BarangController')->except(['show', 'edit']);
     Route::get('/', 'HomeController@index')->name('home');
 
     Route::prefix('/loan')->name('loan.')->group(function () {

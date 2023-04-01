@@ -8,7 +8,7 @@
 	</div>
 	<div class="modal-body">
 		<div class="form-group row">
-			<label class="col-form-label col-sm-2">Untill</label>
+			<label class="col-form-label col-sm-2">Sebelum Tanggal</label>
 			<div class="col-sm-10">
 				<input type="date" class="form-control" name="date">
 			</div>

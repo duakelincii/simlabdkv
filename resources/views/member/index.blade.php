@@ -8,7 +8,7 @@
 		<div class="card-header d-flex align-items-center justify-content-between">
 			<h6 class="font-weight-bold text-primary m-0">Data Member</h6>
 			<div>
-				<a href="{{ route('member.create') }}" class="btn btn-primary btn-sm">New Member</a>
+				<a href="{{ route('member.create') }}" class="btn btn-primary btn-sm">Tambah Member</a>
 			</div>
 		</div>
 		<div class="card-body">

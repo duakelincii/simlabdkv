@@ -1,6 +1,6 @@
 @extends('__layouts.app')
 
-@section('title', 'Remove Stock')
+@section('title', 'Stock Keluar')
 
 @section('content')
 
@@ -9,7 +9,7 @@
 			<div class="card shadow mb-4">
 			<form action="" id="create">
 				<div class="card-header">
-					<h6 class="card-title my-0 font-weight-bold text-primary">Remove Stock</h6>
+					<h6 class="card-title my-0 font-weight-bold text-primary">Stock Keluar</h6>
 				</div>
 				<div class="card-body">
 					@csrf
@@ -32,7 +32,7 @@
 					</div>
 				</div>
 				<div class="card-footer">
-					<button class="btn btn-primary" type="primary">Remove</button>
+					<button class="btn btn-primary" type="primary">Simpan</button>
 				</div>
 			</div>
 			</form>

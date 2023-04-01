@@ -8,13 +8,13 @@
 	</div>
 	<div class="modal-body">
 		<div class="form-group row">
-			<label class="col-form-label col-sm-2">Late</label>
+			<label class="col-form-label col-sm-2">Telat</label>
 			<div class="col-sm-10">
 				<input type="text" class="form-control" name="late" disabled>
 			</div>
 		</div>
 		<div class="form-group row">
-			<label class="col-form-label col-sm-2">Fine</label>
+			<label class="col-form-label col-sm-2">Denda</label>
 			<div class="col-sm-10">
 				<input type="text" class="form-control" name="fine" disabled>
 			</div>
