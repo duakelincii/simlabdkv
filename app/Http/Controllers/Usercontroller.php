@@ -16,10 +16,10 @@ class Usercontroller extends Controller
             return DataTables::eloquent($users)
                 ->addIndexColumn()
                 ->addColumn('action', function ($user) {
-                    $btn = "
-                        <button class='btn btn-success btn-sm edit'>Edit</button>
-                        <button class='btn btn-danger btn-sm delete'>Delete</button>
-                    ";
+                    $btn = '
+                        <button class="btn btn-success btn-sm edit" title="edit"><i class="fas fa-edit"></i></button>
+                            <button class="btn btn-danger btn-sm delete" title="hapus"><i class="fas fa-trash"></i></button>
+                    ';
                     return $btn;
                 })
                 ->toJson();
@@ -30,15 +30,15 @@ class Usercontroller extends Controller
     public function update(Request $request, User $user)
     {
         $request->validate([
-            'email' => 'required|string|max:255|unique:user,email,' . $user->id,
-            'password' => 'required|string',
+            // 'email' => 'required|string|max:255|unique:user,email,' . $user->id,
+            'password' => 'required|string|min:8|confirmed',
         ]);
 
         $user->update([
             'password' => Hash::make($request->password)
         ]);
 
-        return response()->json(['msg' => 'Success Update Password']);
+        return response()->json(['msg' => 'Berhasil Update Password']);
     }
 
     /**
@@ -51,7 +51,7 @@ class Usercontroller extends Controller
     {
         $user->delete();
 
-        return response()->json(['msg' => 'Success Delete member']);
+        return response()->json(['msg' => 'Berhasil Delete member']);
     }
 
     // Get Member
@@ -61,4 +61,5 @@ class Usercontroller extends Controller
         $member = User::where('name', 'like', '%' . $name . '%')->latest()->get(['id', 'name as text']);
         return $member;
     }
+
 }

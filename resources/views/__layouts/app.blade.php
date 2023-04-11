@@ -15,7 +15,7 @@
     <!-- Sidebar -->
 
     @include('__includes.sidebar')
-    
+
     <!-- End of Sidebar -->
 
     <!-- Content Wrapper -->
@@ -38,6 +38,15 @@
 
         </div>
         <!-- /.container-fluid -->
+        @if (Auth::user()->is_admin == 1)
+        <a href="https://wa.me/6281258899812?text=Hi" class="floating" target="_blank">
+            <i class="fa fa-users fab-icon"></i>
+            </a>
+        @else
+            <a href="https://wa.me/6282344996333?text=Hi" class="floating" target="_blank">
+                <i class="fa fa-users fab-icon"></i>
+                </a>
+        @endif
 
       </div>
       <!-- End of Main Content -->

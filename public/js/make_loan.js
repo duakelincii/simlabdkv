@@ -65,20 +65,20 @@ $(function () {
 	}
 
 	$('[name=code]').select2({
-		placeholder: 'Code',
+		placeholder: 'Kode Barang',
 		ajax: {
 			url: getBookUrl,
 			type: 'post',
 			data: params => ({
 				_token: token,
-				code: params.term
+				code: params.term,
 			}),
 			dataType: 'json',
 			processResults: res => ({
 				results: res
 			}),
 			cache: true
-		}
+		},
 	})
 
 	$('[name=member_id]').select2({

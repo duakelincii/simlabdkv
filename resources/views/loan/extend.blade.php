@@ -3,7 +3,7 @@
 <div class="modal-content">
 <form>
 	<div class="modal-header">
-		<h5 class="modal-title">Extend</h5>
+		<h5 class="modal-title">Perpanjang</h5>
 		<button class="close" data-dismiss="modal">&times;</button>
 	</div>
 	<div class="modal-body">
@@ -15,8 +15,8 @@
 		</div>
 	</div>
 	<div class="modal-footer">
-		<button class="btn btn-primary" type="submit">Extend</button>
-		<button class="btn btn-danger" data-dismiss="modal">Cancel</button>
+		<button class="btn btn-primary" type="submit">Simpan</button>
+		<button class="btn btn-danger" data-dismiss="modal">Batal</button>
 	</div>
 </form>
 </div>

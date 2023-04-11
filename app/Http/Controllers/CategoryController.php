@@ -88,8 +88,8 @@ class CategoryController extends Controller
             ->addColumn('action', function ()
             {
                 $btn = '
-                    <button class="btn btn-success btn-sm edit">Edit</button>
-                    <button class="btn btn-danger btn-sm delete">Delete</button>
+                <button class="btn btn-success btn-sm edit" title="edit"><i class="fas fa-edit"></i></button>
+                <button class="btn btn-danger btn-sm delete" title="hapus"><i class="fas fa-trash"></i></button>
                 ';
                 return $btn;
             })

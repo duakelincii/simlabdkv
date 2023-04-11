@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Barang extends Model
 {
     use HasFactory;
-    protected $fillable = ['code', 'name', 'satuan', 'year', 'category_id'];
+    protected $fillable = ['code', 'name', 'satuan', 'year', 'category_id','gambar'];
 
     public function stocks()
     {

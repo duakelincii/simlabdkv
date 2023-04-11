@@ -18,7 +18,16 @@ $(function () {
 				orderable: false,
 				searchable: false
 			}
-		]
+		],
+        "oLanguage": {
+            "sSearch": "Cari :",
+            "sLengthMenu": "Lihat _MENU_ Data",
+            "oPaginate": {
+                "sNext": '<i class="fa fa-forward"></i>',
+                "sPrevious": '<i class="fa fa-backward"></i>',
+             },
+            "sInfo": "Memunculkan _START_ Dari _END_ Data",
+        }
 	})
 
 	const reload = () => table.ajax.reload()

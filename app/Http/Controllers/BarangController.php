@@ -41,18 +41,33 @@ class BarangController extends Controller
             'name' => 'required|string|max:255|unique:barangs',
             'satuan' => 'required|string|max:255',
             'year' => 'required|integer|min:1800|max:'.(date('Y')+1),
-            'category_id' => 'required|exists:categories,id'
+            'category_id' => 'required|exists:categories,id',
+            'gambar' => 'required|mimes:jpg,png|max:2048'
         ]);
+        // dd($request->all());
+
+        if ($request->hasFile('gambar')) {
+            $gambar = $request->gambar;
+            $filename = time(). '.' . $gambar->extension();
+            $gambar->move(public_path('upload/gambar'), $filename);
+            $savegambar = 'upload/gambar/'.$filename;
+        }
 
         if (!$request->code) {
             $code = Str::upper(Str::random(6));
 
             $request->merge([
-                'code' => $code
+                'code' => $code,
             ]);
         }
-
-        Barang::create($request->all());
+        Barang::create([
+            'code' => $request->code,
+            'name' => $request->name,
+            'satuan' => $request->satuan,
+            'year' => $request->year,
+            'category_id' => $request->category_id,
+            'gambar' => $savegambar
+        ]);
 
         return redirect('barang')->with('success', 'Success Create barang');
     }
@@ -71,18 +86,43 @@ class BarangController extends Controller
             'name' => 'required|string|max:255|unique:barangs,name,'.$barang->id,
             'satuan' => 'required|string|max:255',
             'year' => 'required|integer|min:1800|max:'.(date('Y')+1),
-            'category_id' => 'required|exists:categories,id'
+            'category_id' => 'required|exists:categories,id',
+            'gambar' => 'nullable'
         ]);
+
+        if ($request->hasFile('gambar')) {
+            $gambar = $request->gambar;
+            $filename = time(). '.' . $gambar->extension();
+            $gambar->move(public_path('upload/gambar'), $filename);
+            $savegambar = 'upload/gambar/'.$filename;
+
+            $inputdata = [
+                'code' => $request->code,
+            'name' => $request->name,
+            'satuan' => $request->satuan,
+            'year' => $request->year,
+            'category_id' => $request->category_id,
+            'gambar' => $savegambar
+            ];
+        }else{
+            $inputdata = [
+                'code' => $request->code,
+            'name' => $request->name,
+            'satuan' => $request->satuan,
+            'year' => $request->year,
+            'category_id' => $request->category_id,
+            ];
+        }
 
         if (!$request->code) {
             $code = Str::upper(Str::random(6));
 
             $request->merge([
-                'code' => $code
+                'code' => $code,
             ]);
         }
 
-        $barang->update($request->all());
+        $barang->update($inputdata);
 
         return response()->json(['msg' => 'Success Update barang']);
     }
@@ -119,8 +159,8 @@ class BarangController extends Controller
                     ->addColumn('action', function ()
                     {
                         $btn = '
-                            <button class="btn btn-success btn-sm edit">Edit</button>
-                            <button class="btn btn-danger btn-sm delete">Delete</button>
+                            <button class="btn btn-success btn-sm edit" title="edit"><i class="fas fa-edit"></i></button>
+                            <button class="btn btn-danger btn-sm delete" title="hapus"><i class="fas fa-trash"></i></button>
                         ';
                         return $btn;
                     })

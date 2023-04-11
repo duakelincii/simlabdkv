@@ -25,9 +25,9 @@
 					<thead>
 						<tr>
 							<th>No</th>
-							<th>Name</th>
+							<th>Nama</th>
 							<th>Jenis Kelamin</th>
-							<th>Action</th>
+							<th>Aksi</th>
 						</tr>
 					</thead>
 				</table>
@@ -90,9 +90,9 @@
 				<span class="invalid-feedback"></span>
 			</div>
 			<div class="form-group">
-				<label>Photo</label>
+				<label>Unggah Gambar</label>
 				<div class="custom-file">
-					<label class="custom-file-label" id="photo">Upload</label>
+					<label class="custom-file-label" id="photo">Unggah Gambar</label>
 					<input type="file" class="custom-file-input" name="file" placeholder="Photo">
 
 					<span class="invalid-feedback"></span>

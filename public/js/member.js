@@ -1,7 +1,7 @@
 $(function () {
-	
+
 	bsCustomFileInput.init()
-	
+
 	const table = $('table').DataTable({
 		serverSide: true,
 		ajax: {
@@ -17,13 +17,22 @@ $(function () {
 				orderable: false,
 				searchable: false
 			}
-		]
+		],
+        "oLanguage": {
+            "sSearch": "Cari :",
+            "sLengthMenu": "Lihat _MENU_ Data",
+            "oPaginate": {
+                "sNext": '<i class="fa fa-forward"></i>',
+                "sPrevious": '<i class="fa fa-backward"></i>',
+             },
+            "sInfo": "Memunculkan _START_ Dari _END_ Data",
+        }
 	})
 
 	const reload = () => table.ajax.reload()
 
 	$('tbody').on('click', '.edit', function () {
-		let data = table.row($(this).parents('tr')).data() 
+		let data = table.row($(this).parents('tr')).data()
 		let modal = $('#edit')
 
 		let action = updateUrl.replace(':id', data.id)
@@ -43,7 +52,7 @@ $(function () {
 
 	$('tbody').on('click', '.delete', function () {
 		if (confirm('Delete?')) {
-			let data = table.row($(this).parents('tr')).data() 
+			let data = table.row($(this).parents('tr')).data()
 
 			let url = deleteUrl.replace(':id', data.id)
 
@@ -57,7 +66,7 @@ $(function () {
 				dataType: 'json',
 				success: res => {
 					let msg = `<div class="alert alert-success alert-dismissible">${res.msg}<button class="close" data-dismiss="alert">&times;</button></div>`
-					
+
 					$('#alert').html(msg)
 					reload()
 				}
@@ -82,7 +91,7 @@ $(function () {
 			dataType: 'json',
 			success: res => {
 				let msg = `<div class="alert alert-success alert-dismissible">${res.msg}<button class="close" data-dismiss="alert">&times;</button></div>`
-				
+
 				$('#alert').html(msg)
 				$('#edit').modal('hide')
 				reload()

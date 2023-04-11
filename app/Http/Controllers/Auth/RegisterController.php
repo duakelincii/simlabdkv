@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\Member;
 use App\Providers\RouteServiceProvider;
 use App\Models\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
@@ -50,6 +51,7 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
+
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
@@ -64,10 +66,28 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
+        // dd($data);
+        $file = $data['file'];
+        $fileName = pathinfo($file->getClientOriginalName(), PATHINFO_FILENAME);
+        $fileName = time().'.'.$file->getClientOriginalExtension();
+
+        $data['file']->storeAs('public/images', $fileName);
+
+        $user = User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
+            'is_admin' => 0
         ]);
+        $member = Member::create([
+            'nik' => $data['nik'],
+            'name' => $data['name'],
+            'phone' => $data['phone'],
+            'gender' => $data['gender'],
+            'address' => $data['address'],
+            'birthday' => $data['birthday'],
+            'user_id' => $user->id
+        ]);
+        return $user;
     }
 }

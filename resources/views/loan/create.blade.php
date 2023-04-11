@@ -1,6 +1,6 @@
 @extends('__layouts.app')
 
-@section('title', 'Make Loan')
+@section('title', 'Buat Pinjaman')
 
 @section('content')
 
@@ -14,7 +14,7 @@
 				</div>
 				<div class="card-body">
 					<div class="form-group">
-						<label>Code</label>
+						<label>Kode Barang</label>
 						<select name="code" class="form-control custom-select"></select>
 					</div>
 					<div class="form-group">
@@ -47,7 +47,7 @@
 								<tr>
 									<th>Nama</th>
 									<th>Total</th>
-									<th>Action</th>
+									<th>Aksi</th>
 								</tr>
 							</thead>
 							<tbody>
@@ -59,8 +59,8 @@
 					</div>
 				</div>
 				<div class="card-footer">
-					<button class="btn btn-primary" data-toggle="modal" data-target="#save" id="saveBtn" disabled>Make Loan</button>
-					<a href="{{ url()->previous() }}" class="btn btn-danger">Cancel</a>
+					<button class="btn btn-primary" data-toggle="modal" data-target="#save" id="saveBtn" disabled>Buat Pinjaman</button>
+					<a href="{{ url()->previous() }}" class="btn btn-danger">Batal</a>
 				</div>
 			</div>
 		</div>
@@ -82,13 +82,17 @@
 				<select name="member_id" class="form-control custom-select" required></select>
 			</div>
 			<div class="form-group">
+				<label>Tanggal Pinjam</label>
+				<input type="date" class="form-control" name="tgl_pinjam" placeholder="Tangal Pinjam" min="{{ date('Y-m-d') }}">
+			</div>
+			<div class="form-group">
 				<label>Tanggal Pengembalian</label>
-				<input type="date" class="form-control" name="return" placeholder="Return Date" min="{{ date('Y-m-d') }}">
+				<input type="date" class="form-control" name="return" placeholder="Tanggal Pengembalian" min="{{ date('Y-m-d') }}">
 			</div>
 		</div>
 		<div class="modal-footer">
-			<button class="btn btn-primary" type="submit">Make</button>
-			<button class="btn btn-danger" data-dismiss="modal">Cancel</button>
+			<button class="btn btn-primary" type="submit">Simpan</button>
+			<button class="btn btn-danger" data-dismiss="modal">Batal</button>
 		</div>
 	</form>
 	</div>

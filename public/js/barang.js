@@ -13,13 +13,25 @@ $(function () {
 			{ data: 'satuan' },
 			{ data: 'year' },
 			{ data: 'stock' },
+            { data: 'gambar',
+                render: gambar => `<img src="${gambar}" alt="image" width="50%">`
+            },
 			{
                 visible: admin === '1' ? true : false,
 				data: 'action',
 				orderable: false,
 				searchable: false
-			}
-		]
+			},
+		],
+        "oLanguage": {
+            "sSearch": "Cari :",
+            "sLengthMenu": "Lihat _MENU_ Data",
+            "oPaginate": {
+                "sNext": '<i class="fa fa-forward"></i>',
+                "sPrevious": '<i class="fa fa-backward"></i>',
+             },
+            "sInfo": "Memunculkan _START_ Dari _END_ Data",
+        }
 	})
 
 	const reload = () => table.ajax.reload()
@@ -36,6 +48,7 @@ $(function () {
 		modal.find('[name=satuan]').val(data.satuan)
 		modal.find('[name=year]').val(data.year)
 		modal.find('[name=category_id]').append(`<option value='${data.category.id}' selected>${data.category.name}</option>`)
+        modal.find('#gambar').html(data.gambar)
 		modal.find('input').removeClass('is-invalid')
 
 		modal.modal('show')
@@ -68,10 +81,17 @@ $(function () {
 	$('#edit form').submit(function (e) {
 		e.preventDefault()
 
+        let data = new FormData(this)
+		let file = $('[name=gambar]')[0].files[0]
+
+		file ? data.append('gambar', file) : ''
+
 		$.ajax({
 			url: this.action,
+            contentType: false,
+            processData: false,
 			type: 'post',
-			data: $(this).serialize(),
+			data: data,
 			dataType: 'json',
 			success: res => {
 				let msg = `<div class="alert alert-success alert-dismissible">${res.msg}<button class="close" data-dismiss="alert">&times;</button></div>`

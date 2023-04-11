@@ -81,7 +81,7 @@ class StockController extends Controller
             ->addColumn('code', function ($stock) {
                 return $stock->barang->code;
             })
-            ->addColumn('action', '<button class="btn btn-sm btn-danger delete">Delete</button>')
+            ->addColumn('action', '<button class="btn btn-sm btn-danger" title="Hapus"><i class="fas fa-trash"></i></button>')
             ->make(true);
     }
 }

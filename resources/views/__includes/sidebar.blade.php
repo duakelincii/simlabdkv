@@ -49,7 +49,7 @@
         <li class="nav-item {{ active('category', 'active') }}">
             <a class="nav-link" href="{{ route('category.index') }}">
                 <i class="fas fa-fw fa-tag"></i>
-                <span>Merk</span></a>
+                <span>Kategori</span></a>
         </li>
 
         <!-- Nav Item - Stock -->
@@ -126,7 +126,7 @@
             </a>
             <div id="loan" class="collapse {{ active('loan', 'show', 'group') }}">
                 <div class="bg-white py-2 collapse-inner rounded">
-                    <h6 class="collapse-header">Loan</h6>
+                    <h6 class="collapse-header">Pinjaman</h6>
                     <a class="collapse-item {{ active('loan', 'active') }}" href="{{ route('loan.index') }}">Data
                         Pinjaman</a>
                     <a class="collapse-item {{ active('loan/create', 'active') }}"
@@ -139,7 +139,7 @@
         <li class="nav-item {{ active('setting', 'active') }}">
             <a class="nav-link" href="{{ route('setting.index') }}">
                 <i class="fas fa-fw fa-cogs"></i>
-                <span>Setting</span></a>
+                <span>Pengaturan</span></a>
         </li>
 
         <!-- Nav Item - Category -->
@@ -217,7 +217,6 @@
                 </div>
             </div>
         </li>
-
         <!-- Nav Item - Category -->
         <li class="nav-item {{ active('profile', 'active') }}">
             <a class="nav-link" href="{{ route('profile.index') }}">

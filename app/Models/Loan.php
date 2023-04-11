@@ -9,7 +9,7 @@ class Loan extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['member_id', 'return', 'status'];
+    protected $fillable = ['member_id', 'return', 'status','tgl_pinjam'];
 
     public function barangs()
     {

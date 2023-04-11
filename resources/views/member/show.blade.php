@@ -24,7 +24,7 @@
 						<table class="table table-bordered" width="100%">
 							<tbody>
 								<tr>
-									<th>Name</th>
+									<th>Nama</th>
 									<td>{{ $member->name }}</td>
 								</tr>
 								<tr>

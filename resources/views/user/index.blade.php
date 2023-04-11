@@ -22,9 +22,9 @@
                     <thead>
                         <tr>
                             <th>No</th>
-                            <th>Name</th>
+                            <th>Nama</th>
                             <th>Email</th>
-                            <th>Admin</th>
+                            <th>Aksi</th>
                         </tr>
                     </thead>
                 </table>
@@ -75,16 +75,16 @@
 
                             <div class="col-sm-6">
                                 <div class="form-group">
-                                    <label>Confirm Password</label>
+                                    <label>Ulangi Password</label>
                                     <input type="password" class="form-control form-control-user"
-                                        placeholder="Repeat Password" name="password_confirmation" required
+                                        placeholder="Ulangi Password" name="password_confirmation" required
                                         autocomplete="new-password">
                                 </div>
                             </div>
                         </div>
                         <div class="modal-footer">
                             <button class="btn btn-primary" type="submit">Update</button>
-                            <button class="btn btn-danger" data-dismiss="modal">Cancel</button>
+                            <button class="btn btn-danger" data-dismiss="modal">Batal</button>
                         </div>
                 </form>
             </div>

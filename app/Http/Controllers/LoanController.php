@@ -141,8 +141,7 @@ class LoanController extends Controller
                 if ($loan->status) {
                     $today = Carbon::today();
                     $return = Carbon::parse($loan->return);
-                    // dd($today->diffInDays($return, true), 0);
-                    return $today->diffInDays($return, true);
+                    return min($today->diffInDays($return,false),0);
                 } else {
                     return 0;
                 }

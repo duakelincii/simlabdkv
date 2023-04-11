@@ -1,6 +1,6 @@
 @extends('__layouts.app')
 
-@section('title', 'Setting')
+@section('title', 'Pengaturan')
 
 @section('content')
 
@@ -8,7 +8,7 @@
 	<div class="col-md-6 mx-auto">
 		<div class="card shadow mb-4">
 			<div class="card-header">
-				<h6 class="font-weight-bold text-primary m-0">Setting</h6>
+				<h6 class="font-weight-bold text-primary m-0">Pengaturan</h6>
 			</div>
 			<div class="card-body">
 				@if(session('success'))

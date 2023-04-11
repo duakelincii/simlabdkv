@@ -11,7 +11,7 @@
 				<h6 class="font-weight-bold text-primary m-0">Tambah Barang</h6>
 			</div>
 			<div class="card-body">
-				<form action="{{ route('barang.store') }}" method="post">
+				<form action="{{ route('barang.store') }}" method="post" enctype="multipart/form-data">
 					@csrf
 					<div class="form-group">
 						<label>Code</label>
@@ -51,6 +51,14 @@
 						<input type="number" maxlength="4" class="form-control @error('year') is-invalid @enderror" name="year" placeholder="Year" value="{{ old('year') }}" required>
 
 						@error('year')
+							<span class="invalid-feedback">{{ $message }}</span>
+						@enderror
+					</div>
+					<div class="form-group">
+						<label>Gambar Barang</label>
+						<input type="file" maxlength="4" class="form-control @error('gambar') is-invalid @enderror" name="gambar" accept="image/png, image/jpeg" placeholder="gambar" value="{{ old('gambar') }}" required>
+
+						@error('gambar')
 							<span class="invalid-feedback">{{ $message }}</span>
 						@enderror
 					</div>

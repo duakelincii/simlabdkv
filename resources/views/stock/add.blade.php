@@ -40,7 +40,7 @@
 		<div class="col-md-8">
 			<div class="card shadow">
 				<div class="card-header">
-					<h6 class="card-title my-0 font-weight-bold text-primary">History</h6>
+					<h6 class="card-title my-0 font-weight-bold text-primary">Riwayat Stock Masuk</h6>
 				</div>
 				<div class="card-body">
 					<div id="alert"></div>
@@ -49,12 +49,12 @@
 							<thead>
 								<tr>
 									<th>No</th>
-									<th>Code</th>
-                                    <th>From</th>
+									<th>Kode</th>
+                                    <th>Dari</th>
 									<th>Total</th>
-									<th>Date</th>
+									<th>Tanggal</th>
                                     <th>Ket</th>
-									<th>Action</th>
+									<th>Aksi</th>
 								</tr>
 							</thead>
 						</table>

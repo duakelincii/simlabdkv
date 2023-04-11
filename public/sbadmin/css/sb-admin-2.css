@@ -9672,6 +9672,12 @@ a:focus {
   background-size: cover;
 }
 
+.bg-gradient-image {
+  background-color: #4e73df;
+  background-image: url(../../sbadmin/img/bg-login.png);
+  background-size: cover;
+}
+
 .bg-gradient-secondary {
   background-color: #858796;
   background-image: linear-gradient(180deg, #858796 10%, #60616f 100%);
@@ -10584,7 +10590,7 @@ a:focus {
 }
 
 .bg-login-image {
-  background: url({{asset('sbadmin/img/logo-smk4.jpg')}});
+  background: url(../../sbadmin/img/logo-smk4.jpg);
   background-position: center;
   background-size: cover;
 }
@@ -10996,3 +11002,22 @@ footer.sticky-footer .copyright {
 body.sidebar-toggled footer.sticky-footer {
   width: 100%;
 }
+
+.floating {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    bottom: 40px;
+    right: 40px;
+    background-color: #005b8f;
+    color: #fff;
+    border-radius: 50px;
+    text-align: center;
+    font-size: 30px;
+    box-shadow: 2px 2px 3px #999;
+    z-index: 100;
+    }
+
+    .fab-icon {
+    margin-top: 16px;
+    }

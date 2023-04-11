@@ -32,8 +32,8 @@
                     <div class="form-group">
                         <label>Status</label>
                         <select data-filter="status" class="form-control custom-select">
-                            <option value="1">Active</option>
-                            <option value="0">Returned</option>
+                            <option value="1">Aktif</option>
+                            <option value="0">Dikembalikan</option>
                         </select>
                     </div>
                 </div>
@@ -58,7 +58,7 @@
                             <th>Pengembalian</th>
                             <th>Telat</th>
                             <th>Status</th>
-                            <th>Action</th>
+                            <th>Aksi</th>
                         </tr>
                     </thead>
                 </table>

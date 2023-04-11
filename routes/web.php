@@ -77,9 +77,11 @@ Route::middleware(['auth'])->group(function () {
     });
 
     Route::prefix('/profile')->name('profile.')->group(function () {
-        Route::view('/', 'profile.index')->name('index');
+        Route::get('/index', 'ProfileController@index')->name('index');
         Route::put('/save', 'ProfileController@save')->name('save');
     });
+
+    Route::post('register/save', 'ProfileController@simpan_register')->name('profile.simpanregister');
 
     Route::resource('/loan', 'LoanController')->except(['show', 'edit', 'update']);
 });

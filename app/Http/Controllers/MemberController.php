@@ -25,9 +25,9 @@ class MemberController extends Controller
                 ->addColumn('action', function ($member)
                 {
                     $btn = "
-                        <a class='btn btn-info btn-sm' href=".route('member.show', $member->id).">Show</a>
-                        <button class='btn btn-success btn-sm edit'>Edit</button>
-                        <button class='btn btn-danger btn-sm delete'>Delete</button>
+                        <a class='btn btn-info btn-sm' href=".route('member.show', $member->id)." title='Lihat'><i class='fas fa-eye'></i></a>
+                        <button class='btn btn-success btn-sm edit' title='Edit'><i class='fas fa-edit'></i></button>
+                        <button class='btn btn-danger btn-sm delete' title='Hapus'><i class='fas fa-edit'></i></button>
                     ";
                     return $btn;
                 })
@@ -60,7 +60,8 @@ class MemberController extends Controller
             'gender' => 'required|string',
             'birthday' => 'required|date',
             'address' => 'required|string',
-            'file' => 'required|image'
+            'file' => 'required|image',
+            'nik' => 'required'
         ]);
 
         $file = $request->file;
@@ -110,7 +111,8 @@ class MemberController extends Controller
             'gender' => 'required|string',
             'birthday' => 'required|date',
             'address' => 'required|string',
-            'file' => 'image|nullable'
+            'file' => 'image|nullable',
+            'nik' => 'required'
         ]);
 
         if ($request->hasFile('file')) {
@@ -124,7 +126,13 @@ class MemberController extends Controller
                 'photo' => $fileName
             ]);
         }
-
+        $user = User::where('member_id',$member)->first();
+        $user->update([
+            'name' => $request->name,
+            'email' => $request->email,
+            'password'  => Hash::make($request->password),
+            'is_admin'  => 0,
+        ]);
         $member->update($request->all());
 
         return response()->json(['msg' => 'Success Update member']);

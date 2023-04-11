@@ -23,7 +23,7 @@ $(function () {
             },
 			{
 				data: 'status',
-				render: status =>`<span class="badge badge-${status ? 'primary' : 'success'}">${status ? 'Active' : 'Dikembalikan'}</span>`
+				render: status =>`<span class="badge badge-${status ? 'primary' : 'success'}">${status ? 'Aktif' : 'Dikembalikan'}</span>`
 			},
 			{
                 visible: admin === '1' ? true : false,
@@ -31,7 +31,7 @@ $(function () {
                             const btn = `
                             <button class="btn btn-warning btn-sm" data-click="return" title="Return" ${row.status ? '' : 'disabled'}><i class="fa fa-undo"></i></button>
                             <button class="btn btn-info btn-sm" data-click="extend" title="Extend" ${row.status ? '' : 'disabled'}><i class="fa fa-calendar"></i></button>
-                            <button class="btn btn-danger btn-sm" data-click="delete" title="Delete"><i class="fa fa-trash"></i></button>
+                            <button class="btn btn-danger btn-sm" data-click="hapus" title="Hapus"><i class="fa fa-trash"></i></button>
                         `
                             return btn
 
@@ -43,7 +43,16 @@ $(function () {
 				data: 'return_date',
 				visible: false
 			}
-		]
+		],
+        "oLanguage": {
+            "sSearch": "Cari :",
+            "sLengthMenu": "Lihat _MENU_ Data",
+            "oPaginate": {
+                "sNext": '<i class="fa fa-forward"></i>',
+                "sPrevious": '<i class="fa fa-backward"></i>',
+             },
+            "sInfo": "Memunculkan _START_ Dari _END_ Data",
+        }
 	})
 
 	const reload = () => table.ajax.reload()

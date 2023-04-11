@@ -15,12 +15,12 @@
 					@csrf
 					<input type="hidden" name="type" value="out">
 					<div class="form-group">
-						<label>Code</label>
-						<select name="code" class="form-control custom-select" placeholder="Code" required></select>
+						<label>Kode</label>
+						<select name="code" class="form-control custom-select" placeholder="Kode" required></select>
 					</div>
 					<div class="form-group">
-						<label>Asal Barang</label>
-						<input type="text" class="form-control" name="from" placeholder="Asal Barang" required>
+						<label>Keluar Barang</label>
+						<input type="text" class="form-control" name="from" placeholder="Keluar Barang" required>
 					</div>
 					<div class="form-group">
 						<label>Total</label>
@@ -40,7 +40,7 @@
 		<div class="col-md-8">
 			<div class="card shadow">
 				<div class="card-header">
-					<h6 class="card-title my-0 font-weight-bold text-primary">History</h6>
+					<h6 class="card-title my-0 font-weight-bold text-primary">Riwayat Stock Keluar</h6>
 				</div>
 				<div class="card-body">
 					<div id="alert"></div>
@@ -49,12 +49,12 @@
 							<thead>
 								<tr>
 									<th>No</th>
-									<th>Code</th>
-                                    <th>From</th>
+									<th>Kode</th>
+                                    <th>Keluar Barang</th>
 									<th>Total</th>
-									<th>Date</th>
+									<th>Tanggal</th>
                                     <th>Ket</th>
-									<th>Action</th>
+									<th>Aksi</th>
 								</tr>
 							</thead>
 						</table>

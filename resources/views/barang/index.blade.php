@@ -28,11 +28,12 @@
 						<tr>
 							<th>No</th>
 							<th>Code</th>
-							<th>Name</th>
+							<th>Nama</th>
 							<th>Satuan</th>
 							<th>Tahun Pembuatan</th>
 							<th>Stock</th>
-							<th>Action</th>
+                            <th>Gambar</th>
+							<th>Aksi</th>
 						</tr>
 					</thead>
 				</table>
@@ -83,10 +84,15 @@
 
 				<span class="invalid-feedback"></span>
 			</div>
+            <div class="form-group">
+                <label>Gambar Barang</label>
+                <input type="file" maxlength="4" class="form-control" name="gambar" id="gambar" accept="image/png, image/jpeg" >
+                <span class="invalid-feedback"></span>
+            </div>
 		</div>
 		<div class="modal-footer">
 			<button class="btn btn-primary" type="submit">Update</button>
-			<button class="btn btn-danger" data-dismiss="modal">Cancel</button>
+			<button class="btn btn-danger" data-dismiss="modal">Batal</button>
 		</div>
 	</form>
 	</div>

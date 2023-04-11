@@ -19,6 +19,15 @@ $(function () {
 				searchable: false
 			}
 		],
+        "oLanguage": {
+            "sSearch": "Cari :",
+            "sLengthMenu": "Lihat _MENU_ Data",
+            "oPaginate": {
+                "sNext": '<i class="fa fa-forward"></i>',
+                "sPrevious": '<i class="fa fa-backward"></i>',
+             },
+            "sInfo": "Memunculkan _START_ Dari _END_ Data",
+        }
 
 	})
 
@@ -67,9 +76,9 @@ $(function () {
 		e.preventDefault()
 
 		let data = new FormData(this)
-		let file = $('[name=file]')[0].files[0]
+		// let file = $('[name=file]')[0].files[0]
 
-		file ? data.append('file', file) : ''
+		// file ? data.append('file', file) : ''
 
 		$.ajax({
 			url: this.action,
@@ -87,14 +96,18 @@ $(function () {
 			},
 			error: err => {
 				if (err.status === 422) {
-					console.log(err)
 					let errors = err.responseJSON.errors
-					$.each(errors, function (email, error) {
+					$.each(errors, function (email,error) {
+                        console.log(error)
 						let input = $(`[email=${email}]`)
-						let msg = error[0]
+						// let msg = error[0]
+                        let msg = `<div class="alert alert-danger alert-dismissible">${error[0]}<button class="close" data-dismiss="alert">&times;</button></div>`
 
-						input.addClass('is-invalid')
-						input.next('.invalid-feedback').html(msg)
+                        $('#alert').html(msg)
+                        $('#edit').modal('hide')
+                        reload()
+						// input.addClass('is-invalid')
+						// input.next('.invalid-feedback').html(msg)
 					})
 				}
 			}
